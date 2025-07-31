@@ -51,7 +51,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen menu-gradient font-inter overflow-auto">
+    <div className="menu-gradient font-inter" style={{ minHeight: '100vh', width: '100%', overflow: 'visible' }}>
       {renderCurrentScreen()}
     </div>
   );

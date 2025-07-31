@@ -200,7 +200,7 @@ const EducationScreen = () => {
 
   if (selectedScam) {
     return (
-      <div className="min-h-screen game-gradient p-4 overflow-auto">
+      <div className="game-gradient p-4" style={{ minHeight: '100vh', width: '100%', overflow: 'visible' }}>
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white p-6 rounded-t-xl shadow-2xl">
@@ -320,7 +320,7 @@ const EducationScreen = () => {
   }
 
   return (
-    <div className="min-h-screen game-gradient p-4 pb-20 overflow-auto">
+    <div className="game-gradient p-4 pb-20" style={{ minHeight: '100vh', width: '100%', overflow: 'visible' }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white p-6 rounded-xl shadow-2xl mb-6">

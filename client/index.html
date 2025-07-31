@@ -32,14 +32,23 @@
       }
       
       html, body {
-        height: auto;
+        height: auto !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
         scroll-behavior: smooth;
+        position: relative !important;
       }
       
       #root {
-        min-height: 100vh;
-        height: auto;
-        overflow: visible;
+        min-height: 100vh !important;
+        height: auto !important;
+        overflow: visible !important;
+        position: relative !important;
+      }
+      
+      /* Force scroll on all containers */
+      .min-h-screen {
+        overflow: visible !important;
       }
       
       .game-gradient {
