@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Vai Cair no Golpe?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,19 @@
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      
+      html, body {
+        height: auto;
+        scroll-behavior: smooth;
+      }
+      
+      #root {
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
       }
       
       .game-gradient {

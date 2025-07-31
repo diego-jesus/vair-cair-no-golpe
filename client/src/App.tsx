@@ -51,7 +51,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen menu-gradient font-inter">
+    <div className="min-h-screen menu-gradient font-inter overflow-auto">
       {renderCurrentScreen()}
     </div>
   );

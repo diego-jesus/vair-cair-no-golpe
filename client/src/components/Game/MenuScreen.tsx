@@ -60,8 +60,8 @@ const MenuScreen = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-2xl w-full">
+    <div className="min-h-screen flex items-center justify-center p-4 py-8 overflow-auto">
+      <div className="max-w-2xl w-full my-8">
         {/* Logo e Título */}
         <div className="text-center mb-8">
           <div className="mb-4 relative">
