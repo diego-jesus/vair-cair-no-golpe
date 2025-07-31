@@ -18,11 +18,11 @@ const FeedbackScreen = () => {
   const isCorrect = lastAnswer?.isCorrect || false;
   const explanation = currentMessage?.explicacao || '';
 
-  // Auto advance after 3 seconds
+  // Auto advance after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       nextRound();
-    }, 3000);
+    }, 30000);
 
     return () => clearTimeout(timer);
   }, [nextRound]);
@@ -51,24 +51,36 @@ const FeedbackScreen = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-100">
-      <Card className="max-w-2xl w-full">
+    <div className={`min-h-screen flex items-center justify-center p-4 transition-all duration-500 ${
+      isCorrect ? 'bg-gradient-to-br from-green-50 to-emerald-100' : 'bg-gradient-to-br from-red-50 to-pink-100'
+    }`}>
+      <Card className="max-w-3xl w-full shadow-2xl border-2 border-white/50 backdrop-blur">
         <CardContent className="pt-8 text-center">
           {/* Result Icon and Message */}
-          <div className="mb-6">
-            {isCorrect ? (
-              <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
-            ) : (
-              <XCircle className="h-16 w-16 text-red-600 mx-auto mb-4" />
-            )}
+          <div className="mb-8">
+            <div className="relative mb-6">
+              {isCorrect ? (
+                <div className="animate-bounce">
+                  <CheckCircle className="h-24 w-24 text-green-600 mx-auto mb-4 animate-pulse" />
+                  <div className="absolute -top-2 -right-8 text-4xl animate-spin">✨</div>
+                  <div className="absolute -top-4 -left-6 text-3xl animate-bounce delay-300">🎯</div>
+                </div>
+              ) : (
+                <div className="animate-pulse">
+                  <XCircle className="h-24 w-24 text-red-600 mx-auto mb-4" />
+                  <div className="absolute -top-2 -right-8 text-4xl animate-bounce">⚠️</div>
+                  <div className="absolute -top-4 -left-6 text-3xl animate-spin delay-500">💸</div>
+                </div>
+              )}
+            </div>
             
-            <h2 className={`text-3xl font-bold mb-2 ${
+            <h2 className={`text-5xl font-black mb-4 ${
               isCorrect ? 'text-green-600' : 'text-red-600'
             }`}>
-              {isCorrect ? 'Correto!' : 'Errou!'}
+              {isCorrect ? '🎉 ACERTOU!' : '❌ ERROU!'}
             </h2>
             
-            <p className="text-xl text-gray-700 mb-4">
+            <p className="text-2xl font-bold text-gray-700 mb-4 bg-white/70 p-4 rounded-xl shadow">
               {getImpactPhrase()}
             </p>
           </div>
@@ -132,13 +144,20 @@ const FeedbackScreen = () => {
           </div>
 
           {/* Continue Button */}
-          <Button
-            onClick={nextRound}
-            size="lg"
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3"
-          >
-            {currentRound >= totalRounds ? 'Ver Resultado Final' : 'Próxima Mensagem'}
-          </Button>
+          <div className="flex flex-col gap-4">
+            <Button
+              onClick={nextRound}
+              size="lg"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-4 text-xl font-bold shadow-2xl transform hover:scale-105 transition-all"
+            >
+              <span className="text-2xl mr-3">🚀</span>
+              {currentRound >= totalRounds ? 'VER RESULTADO FINAL!' : 'PRÓXIMA PERGUNTA!'}
+            </Button>
+            
+            <p className="text-sm text-gray-500 bg-white/50 p-2 rounded-lg">
+              💡 Avança automaticamente em 30 segundos ou clique para continuar agora
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>

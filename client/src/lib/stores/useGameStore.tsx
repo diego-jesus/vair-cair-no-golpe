@@ -71,7 +71,7 @@ export const useGameStore = create<GameStore>()(
     
     currentRound: 1,
     totalRounds: 10,
-    timeLeft: 30,
+    timeLeft: 45,
     
     score: 0,
     combo: 0,
@@ -114,7 +114,7 @@ export const useGameStore = create<GameStore>()(
         currentMessageIndex: 0,
         currentMessage: levelMessages[0],
         currentRound: 1,
-        timeLeft: 30,
+        timeLeft: 45,
         score: 0,
         combo: 0,
         correctAnswers: 0,
@@ -183,8 +183,8 @@ export const useGameStore = create<GameStore>()(
       const nextIndex = state.currentMessageIndex + 1;
       const nextMessage = state.messages[nextIndex];
       
-      // Decrease time as rounds progress (minimum 10 seconds)
-      const newTimeLeft = Math.max(10, 30 - Math.floor(state.currentRound / 2) * 5);
+      // Decrease time as rounds progress (minimum 20 seconds)
+      const newTimeLeft = Math.max(20, 45 - Math.floor(state.currentRound / 2) * 5);
       
       set({
         gameState: "playing",
@@ -210,7 +210,7 @@ export const useGameStore = create<GameStore>()(
         currentMessage: null,
         currentRound: 1,
         totalRounds: 10,
-        timeLeft: 30,
+        timeLeft: 45,
         score: 0,
         combo: 0,
         correctAnswers: 0,
