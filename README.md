@@ -59,8 +59,8 @@ Seção educativa completa com informações detalhadas sobre:
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/vai-cair-no-golpe.git
-   cd vai-cair-no-golpe
+   git clone https://github.com/diego-jesus/vair-cair-no-golpe.git
+   cd vair-cair-no-golpe
    ```
 
 2. **Instale as dependências**

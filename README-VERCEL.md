@@ -18,7 +18,7 @@ O projeto já está configurado para deploy automático na Vercel com:
 
 2. **Import Project**
    - Clique em "New Project"
-   - Selecione o repositório do jogo
+   - Selecione o repositório `diego-jesus/vair-cair-no-golpe`
    - A Vercel detectará automaticamente as configurações
 
 3. **Variáveis de Ambiente**
@@ -38,8 +38,8 @@ O projeto já está configurado para deploy automático na Vercel com:
 - Assets estáticos servidos automaticamente
 
 ### URLs Finais
-- Produção: `https://seu-projeto.vercel.app`
-- API: `https://seu-projeto.vercel.app/api/*`
+- Produção: `https://vair-cair-no-golpe.vercel.app`
+- API: `https://vair-cair-no-golpe.vercel.app/api/*`
 
 ### Domínio Customizado
 Depois do deploy, você pode configurar seu domínio personalizado nas configurações do projeto na Vercel.
