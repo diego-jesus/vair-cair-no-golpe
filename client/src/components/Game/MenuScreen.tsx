@@ -169,7 +169,7 @@ const MenuScreen = () => {
         </div>
 
         {/* Regras do Jogo */}
-        <Card className="mb-6 card-hover bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-300">
+        <Card className="mb-6 mt-8 card-hover bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-300">
           <CardContent className="pt-6">
             <h3 className="font-bold mb-4 text-xl text-gray-800 text-center">
               📋 Como Jogar e Ganhar Pontos:
