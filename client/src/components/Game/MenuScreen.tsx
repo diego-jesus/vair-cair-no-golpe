@@ -151,6 +151,13 @@ const MenuScreen = () => {
 
         {/* Botões de Ação */}
         <div className="grid gap-5">
+          {/* Instrução de seleção */}
+          <div className="text-center p-4 bg-blue-50 rounded-xl border-2 border-blue-200">
+            <p className="text-lg font-semibold text-blue-800">
+              👆 Primeiro escolha um modo acima, depois clique no botão desejado!
+            </p>
+          </div>
+
           {/* Início Rápido */}
           <Button
             onClick={handleQuickStart}
@@ -158,7 +165,7 @@ const MenuScreen = () => {
             className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-5 text-xl font-bold shadow-2xl button-bounce transform hover:scale-105 transition-all"
           >
             <span className="text-2xl mr-3">🚀</span>
-            JOGAR AGORA! (10 perguntas)
+            JOGAR AGORA! (10 perguntas - {gameModes.find(m => m.id === selectedMode)?.name || 'Modo Clássico'})
           </Button>
 
           {/* Modo Níveis */}
@@ -168,7 +175,7 @@ const MenuScreen = () => {
             className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-5 text-xl font-bold shadow-xl transform hover:scale-105 transition-all"
           >
             <span className="text-2xl mr-3">🏆</span>
-            MODO NÍVEIS (100 perguntas!)
+            MODO NÍVEIS (100 perguntas - {gameModes.find(m => m.id === selectedMode)?.name || 'Modo Clássico'})
           </Button>
 
           {/* Modo Desafio */}
@@ -178,7 +185,7 @@ const MenuScreen = () => {
             className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-5 text-xl font-bold shadow-xl transform hover:scale-105 transition-all"
           >
             <span className="text-2xl mr-3">⚔️</span>
-            DESAFIAR AMIGO!
+            DESAFIAR AMIGO! ({gameModes.find(m => m.id === selectedMode)?.name || 'Modo Clássico'})
           </Button>
 
           {/* Biblioteca Educativa */}

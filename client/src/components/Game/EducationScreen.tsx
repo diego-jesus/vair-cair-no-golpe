@@ -344,7 +344,7 @@ const EducationScreen = () => {
         </div>
 
         {/* Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {categories.map((category) => {
             const categoryScams = scamTypes.filter(scam => scam.category === category);
             const categoryIcon = category.includes('WhatsApp') ? '📱' : 
@@ -355,27 +355,27 @@ const EducationScreen = () => {
 
             return (
               <Card key={category} className="card-hover bg-white/90 backdrop-blur border-2 border-purple-200 shadow-xl">
-                <CardHeader className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-t-lg">
-                  <CardTitle className="flex items-center text-lg">
-                    <span className="text-2xl mr-3">{categoryIcon}</span>
-                    {category}
+                <CardHeader className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-t-lg p-4">
+                  <CardTitle className="flex items-center text-base font-bold">
+                    <span className="text-xl mr-2">{categoryIcon}</span>
+                    <span className="leading-tight">{category}</span>
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="p-4">
-                  <div className="space-y-3">
+                <CardContent className="p-3">
+                  <div className="space-y-2">
                     {categoryScams.map((scam) => (
                       <Button
                         key={scam.id}
                         onClick={() => setSelectedScam(scam)}
                         variant="outline"
-                        className="w-full justify-start h-auto p-4 border-2 hover:border-purple-400 hover:bg-purple-50"
+                        className="w-full justify-start h-auto p-3 border-2 hover:border-purple-400 hover:bg-purple-50 min-h-[80px]"
                       >
-                        <div className="flex items-center w-full">
-                          <span className="text-2xl mr-3">{scam.icon}</span>
-                          <div className="text-left">
-                            <div className="font-semibold">{scam.title}</div>
-                            <div className="text-sm text-gray-600 line-clamp-2">
-                              {scam.description}
+                        <div className="flex items-start w-full">
+                          <span className="text-xl mr-2 flex-shrink-0 mt-1">{scam.icon}</span>
+                          <div className="text-left flex-1 overflow-hidden">
+                            <div className="font-semibold text-sm leading-tight mb-1 truncate">{scam.title}</div>
+                            <div className="text-xs text-gray-600 leading-relaxed break-words hyphens-auto" style={{ wordBreak: 'break-word' }}>
+                              {scam.description.length > 45 ? scam.description.substring(0, 45) + '...' : scam.description}
                             </div>
                           </div>
                         </div>
