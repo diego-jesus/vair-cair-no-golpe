@@ -66,10 +66,11 @@ const MenuScreen = () => {
         <div className="text-center mb-8">
           <div className="mb-4 relative">
             <div className="text-6xl mb-4 animate-bounce">🛡️</div>
+            <div className="absolute top-0 right-0 text-3xl animate-pulse">⚡</div>
             <div className="absolute top-0 left-2 text-2xl animate-bounce delay-500">🔍</div>
           </div>
           <h1 className="text-5xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent mb-3">
-            VAI CAIR NO GOLPE? 🤔
+            VAI CAIR NO GOLPE?
           </h1>
           <p className="text-xl font-semibold text-gray-700 mb-2">
             🎮 O jogo que te ensina a não cair em roubada! 
