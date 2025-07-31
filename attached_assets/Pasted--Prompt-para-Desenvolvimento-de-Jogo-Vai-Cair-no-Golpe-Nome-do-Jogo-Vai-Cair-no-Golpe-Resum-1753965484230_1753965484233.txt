@@ -1,0 +1,141 @@
+🧠 Prompt para Desenvolvimento de Jogo: "Vai Cair no Golpe?"
+Nome do Jogo: Vai Cair no Golpe?
+
+Resumo:
+Jogo casual de decisão rápida onde o jogador precisa julgar se mensagens simuladas do cotidiano são GOLPES ou VERDADEIRAS. A proposta é misturar humor, crítica social e leve aprendizado sobre segurança digital — sem ficar chato.
+
+🎮 Objetivo do Jogo
+Acertar o maior número de mensagens em tempo limitado, julgando corretamente se são golpes ou não. Quanto mais acertos, maior a pontuação e a "confiança digital" do jogador.
+
+🧩 Mecânica
+Cada rodada exibe uma mensagem por vez.
+
+O jogador clica em:
+
+✅ Confiável
+
+🚨 Golpe
+
+Feedback imediato após cada resposta (positivo ou negativo).
+
+A cada fase, o tempo para responder diminui.
+
+🔥 Modos de Jogo
+Clássico – Mensagens variadas.
+
+Modo Tiozão – Estilo Zap/WhatsApp, com erros de português e emoji.
+
+Modo Empresa – Focado em fraudes corporativas (boletos, phishing).
+
+Modo Aprendiz – Vem com uma dica antes da pergunta.
+
+🏆 Pontuação
+Acerto: +100 pontos
+
+Erro: -200 pontos
+
+Combo de 3 acertos: bônus de +50
+
+Frases de impacto no feedback (ex: “Vacilou, perdeu o FGTS”)
+
+💬 Exemplos de mensagens
+json
+Copiar
+Editar
+[
+  {
+    "texto": "Parabéns! Você ganhou um PIX de R$ 5.000,00. Clique aqui para resgatar.",
+    "resposta": "Golpe"
+  },
+  {
+    "texto": "Você precisa atualizar seus dados bancários neste link para continuar usando sua conta.",
+    "resposta": "Golpe"
+  },
+  {
+    "texto": "E-mail com boleto do plano de saúde vencido vindo do domínio oficial.",
+    "resposta": "Confiável"
+  },
+  {
+    "texto": "WhatsApp de um número estranho dizendo ser seu filho com celular novo.",
+    "resposta": "Golpe"
+  }
+]
+🧱 Telas principais
+Tela Inicial
+
+Nome do jogo
+
+Botões: Iniciar | Modos de Jogo | Ranking
+
+Tela de Jogo
+
+Mensagem no centro
+
+Botões: ✅ Confiável e 🚨 Golpe
+
+Timer regressivo
+
+Tela de Feedback
+
+Resposta correta
+
+Pontuação
+
+Frase de impacto
+
+Botão "Próxima rodada"
+
+Tela de Resultado Final
+
+Pontuação total
+
+Status (ex: “Você é um Caça-Golpes”)
+
+Botão “Recomeçar” ou “Compartilhar Score”
+
+🎨 Estilo Visual
+Interface estilo WhatsApp/SMS com bolhas de mensagem
+
+Cores: tons pastel + vermelho/verde pra alerta e confiança
+
+Animações leves (ex: tremer a tela em resposta errada)
+
+Sons:
+
+“Ding” para acertos
+
+“Buzina” ou “voz do golpeiro” para erros
+
+💰 Monetização (opcional)
+Ads entre fases (AdMob)
+
+“Versão Premium” sem anúncio
+
+Skins ou frases extras como item de compra (ex: “Zerei o golpe”)
+
+⚙️ Stack sugerida
+Frontend: React Native (ou Expo)
+
+Backend (opcional): Firebase (auth, leaderboard)
+
+Banco de mensagens: JSON local ou Firestore
+
+Deploy: Play Store (fácil de aprovar), depois Apple Store
+
+Design: Figma + Tailwind (se for web)
+
+📦 Extras e Frases Engraçadas (pra feedback ou banner):
+“Golpe tá aí, cai quem dorme!”
+
+“Você quase caiu no golpe do Zap!”
+
+“Cuidado: essa mensagem já pegou 2 milhões de pessoas!”
+
+“CPF clonado (brincadeira… ou não?)”
+
+💡 Ideias futuras:
+Ranking por estado (“TOP5 mais desconfiados do Brasil”)
+
+Estatísticas pessoais (“Você acertou 83% dos golpes do Zap”)
+
+Parcerias com empresas de segurança digital
