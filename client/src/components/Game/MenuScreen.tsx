@@ -70,8 +70,8 @@ const MenuScreen = () => {
               alt="Vai Cair no Golpe Logo" 
               className="w-24 h-24 mx-auto mb-4 animate-bounce drop-shadow-xl"
             />
-            <div className="absolute top-0 right-0 text-3xl animate-pulse">⚡</div>
-            <div className="absolute top-0 left-2 text-2xl animate-bounce delay-500">🔍</div>
+            <div className="absolute top-0 right-0 text-4xl animate-bounce delay-300">⚡</div>
+            <div className="absolute top-0 left-2 text-3xl animate-bounce delay-500">🔍</div>
           </div>
           <h1 className="text-5xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent mb-3">
             VAI CAIR NO GOLPE?
