@@ -51,8 +51,16 @@ function App() {
   };
 
   return (
-    <div className="menu-gradient font-inter" style={{ minHeight: '100vh', width: '100%', overflow: 'visible' }}>
-      {renderCurrentScreen()}
+    <div className="menu-gradient font-inter" style={{ minHeight: '100vh', width: '100%', overflow: 'visible', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1 }}>
+        {renderCurrentScreen()}
+      </div>
+      {/* Rodapé com informações de licença */}
+      <footer className="bg-gray-800/90 backdrop-blur text-white text-center py-3 px-4 text-sm">
+        <p>
+          Projeto aberto sob licença Apache 2.0. © 2025 Diego Oliveira. Não é autorizado o uso do nome ou identidade visual sem permissão.
+        </p>
+      </footer>
     </div>
   );
 }

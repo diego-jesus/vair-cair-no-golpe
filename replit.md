@@ -16,6 +16,11 @@ Preferred communication style: Simple, everyday language.
 - **Educational Content**: Each scam type includes detailed explanations of how it happens, red flags to watch for, protection measures, and real examples
 - **User Experience**: Enhanced buttons with gradients, emojis, and hover effects to make the interface more attractive and accessible for the target demographic
 
+### Legal and Licensing (January 31, 2025)
+- **Apache 2.0 License**: Added complete Apache License 2.0 with Diego Oliveira as copyright holder for 2025
+- **License Visibility**: Integrated license notice in website footer with specific text about visual identity protection
+- **Open Source Initiative**: Project now properly licensed as educational and open source initiative
+
 ## System Architecture
 
 ### Frontend Architecture
