@@ -5,7 +5,7 @@ import MessageBubble from "./MessageBubble";
 import Timer from "./Timer";
 import ScoreDisplay from "./ScoreDisplay";
 import { Button } from "../ui/button";
-import { CheckCircle, AlertTriangle } from "lucide-react";
+import { CheckCircle, AlertTriangle, ArrowLeft } from "lucide-react";
 
 const GameScreen = () => {
   const {
@@ -19,11 +19,17 @@ const GameScreen = () => {
     submitAnswer,
     endGame,
     messages,
-    currentMessageIndex
+    currentMessageIndex,
+    correctAnswers,
+    setGameState
   } = useGameStore();
 
   const { playHit, playSuccess } = useAudio();
   const [isAnswering, setIsAnswering] = useState(false);
+
+  const returnToMenu = () => {
+    setGameState("menu");
+  };
 
   // Auto end game when time runs out
   useEffect(() => {
