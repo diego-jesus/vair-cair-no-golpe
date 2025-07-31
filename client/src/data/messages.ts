@@ -303,6 +303,140 @@ export const gameMessages: GameMessage[] = [
     explicacao: "Preços irreais (iPhone por R$ 100) são sempre golpe. Domínios .tk são gratuitos e muito usados por golpistas.",
     dica: "Se o preço está bom demais para ser verdade, provavelmente é golpe.",
     modos: ['tiozao', 'aprendiz']
+  },
+  {
+    id: 25,
+    texto: "Bradesco informa: Sua transferência PIX de R$ 2.500,00 foi realizada com sucesso para João Silva. Comprovante disponível no app.",
+    resposta: 'confiavel',
+    categoria: 'notificacao_bancaria',
+    tipo: 'sms',
+    explicacao: "Notificação legítima de transação PIX realizada. Bancos enviam confirmações de transações efetivamente realizadas.",
+    dica: "Bancos enviam notificações de transações reais. Verifique sempre no app oficial se tiver dúvidas.",
+    modos: ['classico', 'empresa', 'aprendiz']
+  },
+  {
+    id: 26,
+    texto: "Uber: Sua viagem foi finalizada. Trajeto: Shopping Iguatemi até Rua das Flores, 123. Valor: R$ 18,50. Avalie seu motorista no app.",
+    resposta: 'confiavel',
+    categoria: 'notificacao_servico',
+    tipo: 'sms',
+    explicacao: "Notificação padrão do Uber após finalização de viagem, com dados específicos e realistas.",
+    dica: "Apps de transporte enviam notificações após cada viagem com detalhes específicos.",
+    modos: ['classico', 'aprendiz']
+  },
+  {
+    id: 27,
+    texto: "oi vc!! seu cpf foi sortiado pra ganhar auxilio corona de 1800 reais!!! mas so hoje!!! cadastra rapido no link: auxilio-corona.ml",
+    resposta: 'golpe',
+    categoria: 'auxilio_falso',
+    tipo: 'whatsapp',
+    link: "auxilio-corona.ml",
+    urgencia: true,
+    explicacao: "Auxílios emergenciais não são sorteados e só são acessados via canais oficiais do governo (.gov.br). Domínio .ml é suspeito.",
+    dica: "Benefícios do governo nunca são 'sorteados' e só existem em sites .gov.br.",
+    modos: ['tiozao', 'aprendiz']
+  },
+  {
+    id: 28,
+    texto: "Microsoft Teams: Você foi convidado para reunião 'Apresentação Trimestral' dia 05/02 às 14:00. Clique para aceitar.",
+    resposta: 'confiavel',
+    categoria: 'comunicacao_trabalho',
+    tipo: 'email',
+    remetente: 'noreply@teams.microsoft.com',
+    assunto: 'Convite para reunião - Teams',
+    explicacao: "Convite legítimo do Microsoft Teams para reunião de trabalho com detalhes específicos.",
+    dica: "Convites do Teams são enviados do domínio oficial da Microsoft com detalhes da reunião.",
+    modos: ['classico', 'empresa', 'aprendiz']
+  },
+  {
+    id: 29,
+    texto: "Itaú Urgente: Detectamos login suspeito em sua conta. Se não foi você, clique para bloquear: itau-seguro.tk",
+    resposta: 'golpe',
+    categoria: 'phishing_bancario',
+    tipo: 'email',
+    remetente: 'seguranca@itau.com.br',
+    link: "itau-seguro.tk",
+    urgencia: true,
+    explicacao: "Domínio falso! Itaú oficial é itau.com.br. Mesmo que o remetente pareça correto, o link revela o golpe.",
+    dica: "Sempre verifique o link de destino, mesmo quando o remetente parece oficial.",
+    modos: ['classico', 'empresa', 'aprendiz']
+  },
+  {
+    id: 30,
+    texto: "iFood: Seu pedido #1234 foi entregue. Hambúrguer Artesanal - R$ 32,90. Que tal avaliar seu delivery?",
+    resposta: 'confiavel',
+    categoria: 'notificacao_servico',
+    tipo: 'sms',
+    explicacao: "Notificação padrão do iFood após entrega de pedido com número específico e valor realista.",
+    dica: "Apps de delivery enviam confirmações de entrega com detalhes específicos do pedido.",
+    modos: ['classico', 'aprendiz']
+  },
+  {
+    id: 31,
+    texto: "Urgente!! Seu WhatsApp vai ser cancelado por falta de atualizacao!!! Atualize agora no link oficial: whatsapp-update.net",
+    resposta: 'golpe',
+    categoria: 'golpe_whatsapp',
+    tipo: 'whatsapp',
+    link: "whatsapp-update.net",
+    urgencia: true,
+    explicacao: "WhatsApp nunca 'cancela' contas por falta de atualização. Atualizações são feitas pela loja de apps oficial.",
+    dica: "Apps só são atualizados pela loja oficial (Play Store/App Store), nunca por links externos.",
+    modos: ['tiozao', 'aprendiz']
+  },
+  {
+    id: 32,
+    texto: "Santander: Compra aprovada no cartão final 1234: Supermercado Extra - R$ 157,80. Central de cancelamento: 4003-3333",
+    resposta: 'confiavel',
+    categoria: 'notificacao_bancaria',
+    tipo: 'sms',
+    explicacao: "Notificação real de compra no cartão com informações específicas e telefone oficial do banco.",
+    dica: "Bancos enviam notificações de compras com final do cartão e telefone oficial para dúvidas.",
+    modos: ['classico', 'empresa', 'aprendiz']
+  },
+  {
+    id: 33,
+    texto: "Elon Musk esta dando bitcoin de graca!!! 1 bitcoin pra cada pessoa!!! mas so ate hoje!!! envia 0.1 bitcoin pra receber 1 bitcoin de volta!!!",
+    resposta: 'golpe',
+    categoria: 'criptomoeda_falsa',
+    tipo: 'whatsapp',
+    urgencia: true,
+    explicacao: "Golpe clássico de criptomoedas. Ninguém dá dinheiro de graça, especialmente não pedindo dinheiro primeiro. Esquemas 'envie X para receber Y' são sempre golpes.",
+    dica: "Esquemas que pedem para 'enviar dinheiro para receber mais dinheiro' são sempre golpes.",
+    modos: ['tiozao', 'aprendiz']
+  },
+  {
+    id: 34,
+    texto: "Zoom: Reunião 'Planejamento 2025' iniciará em 15 minutos. ID: 123 456 789. Senha: Plan2025. Organizador: Maria Santos.",
+    resposta: 'confiavel',
+    categoria: 'comunicacao_trabalho',
+    tipo: 'email',
+    remetente: 'noreply@zoom.us',
+    assunto: 'Lembrete de reunião Zoom',
+    explicacao: "Lembrete legítimo de reunião Zoom com ID, senha e organizador específicos.",
+    dica: "Lembretes do Zoom incluem detalhes específicos como ID da reunião e organizador.",
+    modos: ['classico', 'empresa', 'aprendiz']
+  },
+  {
+    id: 35,
+    texto: "parabens vc foi escolhida pra teste do novo iphone 16!!! apple quer sua opiniao!!! preenche os dados aki: apple-teste-br.com",
+    resposta: 'golpe',
+    categoria: 'teste_falso',
+    tipo: 'whatsapp',
+    link: "apple-teste-br.com",
+    urgencia: true,
+    explicacao: "Apple não faz 'escolhas aleatórias' para testes. Domínio falso - Apple oficial é apple.com. Testes reais são feitos por empresas especializadas.",
+    dica: "Empresas grandes não 'escolhem' pessoas aleatoriamente para testes de produtos.",
+    modos: ['tiozao', 'aprendiz']
+  },
+  {
+    id: 36,
+    texto: "FGTS Digital: Seu saque emergencial está liberado. Valor disponível: R$ 1.045,00. Consulte em fgts.caixa.gov.br",
+    resposta: 'confiavel',
+    categoria: 'comunicacao_governo',
+    tipo: 'sms',
+    explicacao: "Comunicação oficial da Caixa sobre FGTS direcionando para site oficial .gov.br com valor específico.",
+    dica: "FGTS é gerido pela Caixa e comunicações oficiais direcionam para sites .gov.br.",
+    modos: ['classico', 'aprendiz']
   }
 ];
 

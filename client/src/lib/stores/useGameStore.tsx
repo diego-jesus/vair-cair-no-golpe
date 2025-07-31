@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
 import { GameMessage, getMessagesByMode, shuffleMessages } from "../../data/messages";
 
-export type GameState = "menu" | "playing" | "feedback" | "result";
+export type GameState = "menu" | "level-select" | "playing" | "feedback" | "result" | "challenge" | "challenge-waiting" | "challenge-playing";
 export type GameMode = "classico" | "tiozao" | "empresa" | "aprendiz";
 
 interface LastAnswer {
@@ -15,6 +15,7 @@ interface GameStore {
   // Game state
   gameState: GameState;
   gameMode: GameMode;
+  currentLevel: number;
   
   // Game data
   messages: GameMessage[];
@@ -32,13 +33,25 @@ interface GameStore {
   correctAnswers: number;
   lastAnswer: LastAnswer | null;
   
+  // Challenge mode
+  challengeCode: string | null;
+  isChallenger: boolean;
+  opponentScore: number;
+  challengeResults: any | null;
+  
   // Actions
   setGameMode: (mode: GameMode) => void;
-  startGame: () => void;
+  setCurrentLevel: (level: number) => void;
+  startGame: (level?: number) => void;
   submitAnswer: (answer: 'confiavel' | 'golpe') => boolean;
   nextRound: () => void;
   endGame: () => void;
   resetGame: () => void;
+  goToLevelSelect: () => void;
+  
+  // Challenge actions
+  createChallenge: () => string;
+  joinChallenge: (code: string) => void;
   
   // Timer
   tickTimer: () => void;
@@ -49,6 +62,7 @@ export const useGameStore = create<GameStore>()(
     // Initial state
     gameState: "menu",
     gameMode: "classico",
+    currentLevel: 1,
     
     messages: [],
     currentMessageIndex: 0,
@@ -63,25 +77,63 @@ export const useGameStore = create<GameStore>()(
     correctAnswers: 0,
     lastAnswer: null,
     
+    // Challenge state
+    challengeCode: null,
+    isChallenger: false,
+    opponentScore: 0,
+    challengeResults: null,
+    
     // Actions
     setGameMode: (mode) => set({ gameMode: mode }),
     
-    startGame: () => {
+    setCurrentLevel: (level) => set({ currentLevel: level }),
+    
+    goToLevelSelect: () => set({ gameState: "level-select" }),
+    
+    startGame: (level) => {
       const state = get();
+      const currentGameLevel = level || state.currentLevel;
       const availableMessages = getMessagesByMode(state.gameMode);
-      const shuffledMessages = shuffleMessages(availableMessages).slice(0, state.totalRounds);
+      
+      // Ensure balanced mix of golpe and confiavel messages
+      const golpeMessages = availableMessages.filter(m => m.resposta === 'golpe');
+      const confiavelMessages = availableMessages.filter(m => m.resposta === 'confiavel');
+      
+      // For each level, select 5 golpe + 5 confiavel messages
+      const selectedGolpe = shuffleMessages(golpeMessages).slice(0, 5);
+      const selectedConfiavel = shuffleMessages(confiavelMessages).slice(0, 5);
+      const levelMessages = shuffleMessages([...selectedGolpe, ...selectedConfiavel]);
       
       set({
         gameState: "playing",
-        messages: shuffledMessages,
+        currentLevel: currentGameLevel,
+        messages: levelMessages,
         currentMessageIndex: 0,
-        currentMessage: shuffledMessages[0],
+        currentMessage: levelMessages[0],
         currentRound: 1,
         timeLeft: 30,
         score: 0,
         combo: 0,
         correctAnswers: 0,
         lastAnswer: null
+      });
+    },
+    
+    createChallenge: () => {
+      const code = Math.random().toString(36).substr(2, 6).toUpperCase();
+      set({ 
+        challengeCode: code,
+        isChallenger: true,
+        gameState: "challenge-waiting"
+      });
+      return code;
+    },
+    
+    joinChallenge: (code) => {
+      set({ 
+        challengeCode: code,
+        isChallenger: false,
+        gameState: "challenge-playing"
       });
     },
     
@@ -149,6 +201,7 @@ export const useGameStore = create<GameStore>()(
       set({
         gameState: "menu",
         gameMode: "classico",
+        currentLevel: 1,
         messages: [],
         currentMessageIndex: 0,
         currentMessage: null,
@@ -158,7 +211,11 @@ export const useGameStore = create<GameStore>()(
         score: 0,
         combo: 0,
         correctAnswers: 0,
-        lastAnswer: null
+        lastAnswer: null,
+        challengeCode: null,
+        isChallenger: false,
+        opponentScore: 0,
+        challengeResults: null
       });
     },
     

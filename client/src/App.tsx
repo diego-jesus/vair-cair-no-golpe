@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useGameStore } from "./lib/stores/useGameStore";
 import MenuScreen from "./components/Game/MenuScreen";
+import LevelSelectScreen from "./components/Game/LevelSelectScreen";
 import GameScreen from "./components/Game/GameScreen";
 import FeedbackScreen from "./components/Game/FeedbackScreen";
 import ResultScreen from "./components/Game/ResultScreen";
+import ChallengeScreen from "./components/Game/ChallengeScreen";
 import { useAudio } from "./lib/stores/useAudio";
 import "@fontsource/inter";
 
@@ -27,12 +29,19 @@ function App() {
     switch (gameState) {
       case 'menu':
         return <MenuScreen />;
+      case 'level-select':
+        return <LevelSelectScreen />;
       case 'playing':
         return <GameScreen />;
       case 'feedback':
         return <FeedbackScreen />;
       case 'result':
         return <ResultScreen />;
+      case 'challenge':
+      case 'challenge-waiting':
+        return <ChallengeScreen />;
+      case 'challenge-playing':
+        return <GameScreen />;
       default:
         return <MenuScreen />;
     }
