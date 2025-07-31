@@ -96,13 +96,7 @@ const MessageBubble = ({ message, gameMode }: MessageBubbleProps) => {
         )}
       </div>
 
-      {/* Footer with metadata */}
-      <div className="px-4 py-2 bg-gray-50 rounded-b-lg border-t">
-        <div className="flex justify-between items-center text-xs text-gray-500">
-          <span>Recebido hoje</span>
-          <span className="capitalize">{message.categoria}</span>
-        </div>
-      </div>
+
     </div>
   );
 };
