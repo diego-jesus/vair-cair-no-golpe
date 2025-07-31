@@ -118,37 +118,6 @@ const MenuScreen = () => {
           </CardContent>
         </Card>
 
-        {/* Regras do Jogo */}
-        <Card className="mb-6 card-hover bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-300">
-          <CardContent className="pt-6">
-            <h3 className="font-bold mb-4 text-xl text-gray-800 text-center">
-              📋 Como Jogar e Ganhar Pontos:
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div className="space-y-3">
-                <div className="flex items-center p-3 bg-white rounded-lg shadow">
-                  <span className="text-2xl mr-3">🔍</span>
-                  <span className="font-medium">Analise cada mensagem com cuidado</span>
-                </div>
-                <div className="flex items-center p-3 bg-white rounded-lg shadow">
-                  <span className="text-2xl mr-3">✅</span>
-                  <span className="font-medium">Decida: CONFIÁVEL ou GOLPE</span>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-center p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
-                  <span className="text-2xl mr-3">💯</span>
-                  <span className="font-medium">Acerto = +100 pontos!</span>
-                </div>
-                <div className="flex items-center p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
-                  <span className="text-2xl mr-3">🔥</span>
-                  <span className="font-medium">3 seguidos = +50 bônus!</span>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Botões de Ação */}
         <div className="grid gap-5">
           {/* Instrução de seleção */}
@@ -198,6 +167,37 @@ const MenuScreen = () => {
             BIBLIOTECA ANTI-GOLPE!
           </Button>
         </div>
+
+        {/* Regras do Jogo */}
+        <Card className="mb-6 card-hover bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-300">
+          <CardContent className="pt-6">
+            <h3 className="font-bold mb-4 text-xl text-gray-800 text-center">
+              📋 Como Jogar e Ganhar Pontos:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="space-y-3">
+                <div className="flex items-center p-3 bg-white rounded-lg shadow">
+                  <span className="text-2xl mr-3">🔍</span>
+                  <span className="font-medium">Analise cada mensagem com cuidado</span>
+                </div>
+                <div className="flex items-center p-3 bg-white rounded-lg shadow">
+                  <span className="text-2xl mr-3">✅</span>
+                  <span className="font-medium">Decida: CONFIÁVEL ou GOLPE</span>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                  <span className="text-2xl mr-3">💯</span>
+                  <span className="font-medium">Acerto = +100 pontos!</span>
+                </div>
+                <div className="flex items-center p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                  <span className="text-2xl mr-3">🔥</span>
+                  <span className="font-medium">3 seguidos = +50 bônus!</span>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Footer com Dica */}
         <div className="text-center mt-8">
