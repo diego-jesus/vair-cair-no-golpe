@@ -79,9 +79,9 @@ const FeedbackScreen = () => {
               <div className="text-center">
                 <p className="text-sm text-gray-600">Pontos Ganhos</p>
                 <p className={`text-2xl font-bold ${
-                  lastAnswer?.pointsEarned >= 0 ? 'text-green-600' : 'text-red-600'
+                  (lastAnswer?.pointsEarned ?? 0) >= 0 ? 'text-green-600' : 'text-red-600'
                 }`}>
-                  {lastAnswer?.pointsEarned >= 0 ? '+' : ''}{lastAnswer?.pointsEarned}
+                  {(lastAnswer?.pointsEarned ?? 0) >= 0 ? '+' : ''}{lastAnswer?.pointsEarned ?? 0}
                 </p>
               </div>
               
