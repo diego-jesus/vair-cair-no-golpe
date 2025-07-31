@@ -6,6 +6,7 @@ import GameScreen from "./components/Game/GameScreen";
 import FeedbackScreen from "./components/Game/FeedbackScreen";
 import ResultScreen from "./components/Game/ResultScreen";
 import ChallengeScreen from "./components/Game/ChallengeScreen";
+import EducationScreen from "./components/Game/EducationScreen";
 import { useAudio } from "./lib/stores/useAudio";
 import "@fontsource/inter";
 
@@ -42,13 +43,15 @@ function App() {
         return <ChallengeScreen />;
       case 'challenge-playing':
         return <GameScreen />;
+      case 'education':
+        return <EducationScreen />;
       default:
         return <MenuScreen />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 font-inter">
+    <div className="min-h-screen menu-gradient font-inter">
       {renderCurrentScreen()}
     </div>
   );

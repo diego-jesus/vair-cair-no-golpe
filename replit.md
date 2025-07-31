@@ -8,6 +8,14 @@ This is a Brazilian Portuguese casual decision-making game where players judge w
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (January 2025)
+
+### Visual Improvements and Educational Library
+- **Enhanced Visual Design**: Transformed the game interface with vibrant colors, Brazilian cultural elements, and engaging animations targeting 30+ users with lower income
+- **New Educational Library**: Added comprehensive "Biblioteca Anti-Golpe" feature with detailed information about 6 major scam types including phishing, fake prizes, WhatsApp cloning, card cloning, fake technical support, and easy loan scams
+- **Educational Content**: Each scam type includes detailed explanations of how it happens, red flags to watch for, protection measures, and real examples
+- **User Experience**: Enhanced buttons with gradients, emojis, and hover effects to make the interface more attractive and accessible for the target demographic
+
 ## System Architecture
 
 ### Frontend Architecture

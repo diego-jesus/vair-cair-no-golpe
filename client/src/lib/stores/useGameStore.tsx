@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
 import { GameMessage, getMessagesByMode, shuffleMessages } from "../../data/messages";
 
-export type GameState = "menu" | "level-select" | "playing" | "feedback" | "result" | "challenge" | "challenge-waiting" | "challenge-playing";
+export type GameState = "menu" | "level-select" | "playing" | "feedback" | "result" | "challenge" | "challenge-waiting" | "challenge-playing" | "education";
 export type GameMode = "classico" | "tiozao" | "empresa" | "aprendiz";
 
 interface LastAnswer {
@@ -40,6 +40,7 @@ interface GameStore {
   challengeResults: any | null;
   
   // Actions
+  setGameState: (state: GameState) => void;
   setGameMode: (mode: GameMode) => void;
   setCurrentLevel: (level: number) => void;
   startGame: (level?: number) => void;
@@ -84,6 +85,8 @@ export const useGameStore = create<GameStore>()(
     challengeResults: null,
     
     // Actions
+    setGameState: (state) => set({ gameState: state }),
+    
     setGameMode: (mode) => set({ gameMode: mode }),
     
     setCurrentLevel: (level) => set({ currentLevel: level }),

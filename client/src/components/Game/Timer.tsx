@@ -16,10 +16,16 @@ const Timer = ({ timeLeft }: TimerProps) => {
     }
   }, [timeLeft]);
 
-  const getTimerColor = () => {
-    if (timeLeft <= 5) return 'text-red-400';
-    if (timeLeft <= 10) return 'text-yellow-400';
-    return 'text-green-100';
+  const getTimerStyle = () => {
+    if (timeLeft <= 5) return 'bg-red-500 text-white border-red-700 animate-pulse';
+    if (timeLeft <= 10) return 'bg-yellow-500 text-black border-yellow-700';
+    return 'bg-green-500 text-white border-green-700';
+  };
+
+  const getTimerEmoji = () => {
+    if (timeLeft <= 5) return '⚠️';
+    if (timeLeft <= 10) return '⏰';
+    return '⏱️';
   };
 
   const formatTime = (seconds: number) => {
@@ -29,11 +35,16 @@ const Timer = ({ timeLeft }: TimerProps) => {
   };
 
   return (
-    <div className={`flex items-center ${getTimerColor()} ${shake ? 'animate-pulse' : ''}`}>
-      <Clock className="h-4 w-4 mr-2" />
-      <span className="text-lg font-mono font-semibold">
+    <div className={`flex items-center px-4 py-2 rounded-full border-2 font-bold shadow-lg transform ${shake ? 'animate-bounce' : ''} ${getTimerStyle()}`}>
+      <span className="text-lg mr-2">{getTimerEmoji()}</span>
+      <span className="text-lg font-mono font-black">
         {formatTime(timeLeft)}
       </span>
+      {timeLeft <= 5 && (
+        <span className="ml-2 text-sm font-bold animate-pulse">
+          RÁPIDO!
+        </span>
+      )}
     </div>
   );
 };

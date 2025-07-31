@@ -11,31 +11,35 @@ const MenuScreen = () => {
   const gameModes = [
     {
       id: 'classico' as const,
-      name: 'Clássico',
-      description: 'Mensagens variadas de golpes comuns',
+      name: '🎯 Clássico',
+      description: 'Vários tipos de golpe do dia a dia',
       icon: Target,
-      color: 'bg-blue-500'
+      color: 'bg-gradient-to-r from-blue-500 to-cyan-500',
+      emoji: '🎯'
     },
     {
       id: 'tiozao' as const,
-      name: 'Modo Tiozão',
-      description: 'Estilo WhatsApp com erros de português',
+      name: '⚡ Modo Tiozão',
+      description: 'Golpes do WhatsApp "do jeito brasileiro"',
       icon: Zap,
-      color: 'bg-yellow-500'
+      color: 'bg-gradient-to-r from-yellow-400 to-orange-500',
+      emoji: '⚡'
     },
     {
       id: 'empresa' as const,
-      name: 'Modo Empresa',
-      description: 'Focado em fraudes corporativas',
+      name: '🏢 Modo Empresa',
+      description: 'Golpes que chegam no trabalho',
       icon: Shield,
-      color: 'bg-purple-500'
+      color: 'bg-gradient-to-r from-purple-500 to-pink-500',
+      emoji: '🏢'
     },
     {
       id: 'aprendiz' as const,
-      name: 'Modo Aprendiz',
-      description: 'Com dicas para iniciantes',
+      name: '🧠 Modo Fácil',
+      description: 'Com dicas pra quem tá começando',
       icon: Brain,
-      color: 'bg-green-500'
+      color: 'bg-gradient-to-r from-green-500 to-emerald-500',
+      emoji: '🧠'
     }
   ];
 
@@ -60,43 +64,53 @@ const MenuScreen = () => {
       <div className="max-w-2xl w-full">
         {/* Logo e Título */}
         <div className="text-center mb-8">
-          <div className="mb-4">
-            <Shield className="h-16 w-16 text-green-600 mx-auto" />
+          <div className="mb-4 relative">
+            <div className="text-6xl mb-4 animate-bounce">🛡️</div>
+            <div className="absolute -top-2 -right-8 text-3xl animate-pulse">⚡</div>
+            <div className="absolute -top-4 -left-6 text-2xl animate-bounce delay-500">🔍</div>
           </div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            Vai Cair no Golpe?
+          <h1 className="text-5xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent mb-3">
+            VAI CAIR NO GOLPE? 🤔
           </h1>
-          <p className="text-gray-600 text-lg">
-            Teste sua habilidade para identificar golpes digitais
+          <p className="text-xl font-semibold text-gray-700 mb-2">
+            🎮 O jogo que te ensina a não cair em roubada! 
+          </p>
+          <p className="text-lg text-gray-600">
+            Aprenda se divertindo! 💪 Proteja seu dinheiro! 💰
           </p>
         </div>
 
         {/* Seleção de Modo */}
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle className="text-center">Escolha o Modo de Jogo</CardTitle>
+        <Card className="mb-6 card-hover bg-white/80 backdrop-blur border-2 border-white/50 shadow-2xl">
+          <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-t-lg">
+            <CardTitle className="text-center text-2xl font-bold">
+              🎮 Escolha Seu Desafio! 
+            </CardTitle>
+            <p className="text-center text-indigo-100">Cada modo tem suas pegadinhas!</p>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {gameModes.map((mode) => {
-                const IconComponent = mode.icon;
                 return (
                   <div
                     key={mode.id}
-                    className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                    className={`p-5 rounded-xl border-3 cursor-pointer transition-all transform hover:scale-105 card-hover ${
                       selectedMode === mode.id
-                        ? 'border-green-500 bg-green-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-yellow-400 bg-yellow-50 shadow-xl scale-105'
+                        : 'border-gray-200 hover:border-purple-300 bg-white hover:shadow-lg'
                     }`}
                     onClick={() => setSelectedMode(mode.id)}
                   >
-                    <div className="flex items-center mb-2">
-                      <div className={`p-2 rounded-full ${mode.color} text-white mr-3`}>
-                        <IconComponent className="h-5 w-5" />
-                      </div>
-                      <h3 className="font-semibold text-gray-800">{mode.name}</h3>
+                    <div className="text-center">
+                      <div className="text-4xl mb-3">{mode.emoji}</div>
+                      <h3 className="font-bold text-lg text-gray-800 mb-2">{mode.name}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{mode.description}</p>
+                      {selectedMode === mode.id && (
+                        <div className="mt-3 text-yellow-600 font-semibold">
+                          ✨ Selecionado! ✨
+                        </div>
+                      )}
                     </div>
-                    <p className="text-sm text-gray-600">{mode.description}</p>
                   </div>
                 );
               })}
@@ -105,58 +119,89 @@ const MenuScreen = () => {
         </Card>
 
         {/* Regras do Jogo */}
-        <Card className="mb-6">
+        <Card className="mb-6 card-hover bg-gradient-to-r from-green-100 to-blue-100 border-2 border-green-300">
           <CardContent className="pt-6">
-            <h3 className="font-semibold mb-3 text-gray-800">Como Jogar:</h3>
-            <ul className="text-sm text-gray-600 space-y-2">
-              <li>• Analise cada mensagem apresentada</li>
-              <li>• Decida se é CONFIÁVEL ✅ ou GOLPE 🚨</li>
-              <li>• Acerto: +100 pontos / Erro: -200 pontos</li>
-              <li>• Combo de 3 acertos: +50 bônus</li>
-              <li>• O tempo diminui a cada fase</li>
-            </ul>
+            <h3 className="font-bold mb-4 text-xl text-gray-800 text-center">
+              📋 Como Jogar e Ganhar Pontos:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="space-y-3">
+                <div className="flex items-center p-3 bg-white rounded-lg shadow">
+                  <span className="text-2xl mr-3">🔍</span>
+                  <span className="font-medium">Analise cada mensagem com cuidado</span>
+                </div>
+                <div className="flex items-center p-3 bg-white rounded-lg shadow">
+                  <span className="text-2xl mr-3">✅</span>
+                  <span className="font-medium">Decida: CONFIÁVEL ou GOLPE</span>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-center p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                  <span className="text-2xl mr-3">💯</span>
+                  <span className="font-medium">Acerto = +100 pontos!</span>
+                </div>
+                <div className="flex items-center p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                  <span className="text-2xl mr-3">🔥</span>
+                  <span className="font-medium">3 seguidos = +50 bônus!</span>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
         {/* Botões de Ação */}
-        <div className="grid gap-4">
+        <div className="grid gap-5">
           {/* Início Rápido */}
           <Button
             onClick={handleQuickStart}
             size="lg"
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-semibold"
+            className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-5 text-xl font-bold shadow-2xl button-bounce transform hover:scale-105 transition-all"
           >
-            🚀 Jogo Rápido (10 perguntas)
+            <span className="text-2xl mr-3">🚀</span>
+            JOGAR AGORA! (10 perguntas)
           </Button>
 
           {/* Modo Níveis */}
           <Button
             onClick={handlePlayWithLevels}
             size="lg"
-            variant="outline"
-            className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg font-semibold"
+            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-5 text-xl font-bold shadow-xl transform hover:scale-105 transition-all"
           >
-            <Trophy className="mr-2 h-6 w-6" />
-            Jogar por Níveis (10 níveis)
+            <span className="text-2xl mr-3">🏆</span>
+            MODO NÍVEIS (100 perguntas!)
           </Button>
 
           {/* Modo Desafio */}
           <Button
             onClick={handleChallenge}
             size="lg"
-            variant="outline"
-            className="border-2 border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-3 text-lg font-semibold"
+            className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-5 text-xl font-bold shadow-xl transform hover:scale-105 transition-all"
           >
-            <Users className="mr-2 h-6 w-6" />
-            Desafiar um Amigo
+            <span className="text-2xl mr-3">⚔️</span>
+            DESAFIAR AMIGO!
+          </Button>
+
+          {/* Biblioteca Educativa */}
+          <Button
+            onClick={() => useGameStore.setState({ gameState: "education" })}
+            size="lg"
+            className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white px-8 py-5 text-xl font-bold shadow-xl transform hover:scale-105 transition-all"
+          >
+            <span className="text-2xl mr-3">📚</span>
+            BIBLIOTECA ANTI-GOLPE!
           </Button>
         </div>
 
         {/* Footer com Dica */}
         <div className="text-center mt-8">
-          <p className="text-sm text-gray-500 italic">
-            "Golpe tá aí, cai quem dorme!"
-          </p>
+          <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black p-4 rounded-xl shadow-lg">
+            <p className="text-lg font-bold">
+              💡 "Golpe tá aí, cai quem dorme!" 
+            </p>
+            <p className="text-sm mt-1">
+              Aprenda brincando e proteja sua família! 🛡️💪
+            </p>
+          </div>
         </div>
       </div>
     </div>
