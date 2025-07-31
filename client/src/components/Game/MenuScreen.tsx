@@ -65,7 +65,11 @@ const MenuScreen = () => {
         {/* Logo e Título */}
         <div className="text-center mb-8">
           <div className="mb-4 relative">
-            <div className="text-6xl mb-4 animate-bounce">🛡️</div>
+            <img 
+              src="/logo-icon.png" 
+              alt="Vai Cair no Golpe Logo" 
+              className="w-24 h-24 mx-auto mb-4 animate-bounce drop-shadow-xl"
+            />
             <div className="absolute top-0 right-0 text-3xl animate-pulse">⚡</div>
             <div className="absolute top-0 left-2 text-2xl animate-bounce delay-500">🔍</div>
           </div>
