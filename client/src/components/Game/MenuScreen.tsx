@@ -64,9 +64,8 @@ const MenuScreen = () => {
       <div className="max-w-2xl w-full my-8">
         {/* Logo e Título */}
         <div className="text-center mb-8">
-          <div className="mb-4 relative px-8 py-4">
+          <div className="mb-4 relative">
             <div className="text-6xl mb-4 animate-bounce">🛡️</div>
-            <div className="absolute top-2 right-2 text-3xl animate-pulse">⚡</div>
             <div className="absolute top-0 left-2 text-2xl animate-bounce delay-500">🔍</div>
           </div>
           <h1 className="text-5xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent mb-3">
